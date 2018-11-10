@@ -21,5 +21,9 @@ public class Launcher extends Subsystem {
         // Set the default command for a subsystem here.
         setDefaultCommand(new Shoot());
     }
+    
+    public void init() {
+    	launcherMotor.set(1);
+    }
 }
 

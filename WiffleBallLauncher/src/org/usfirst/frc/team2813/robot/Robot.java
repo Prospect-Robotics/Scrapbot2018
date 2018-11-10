@@ -8,11 +8,11 @@
 package org.usfirst.frc.team2813.robot;
 
 import org.usfirst.frc.team2813.subsystems.DriveTrain;
+import org.usfirst.frc.team2813.subsystems.Launcher;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +27,7 @@ public class Robot extends IterativeRobot {
 	private String m_autoSelected;
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
 	public static DriveTrain driveTrain;
+	public static Launcher launcher;
 	public static OI oi;
 
 	/**
@@ -36,6 +37,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		driveTrain = new DriveTrain();
+		launcher = new Launcher();
 		oi = new OI();
 	}
 
