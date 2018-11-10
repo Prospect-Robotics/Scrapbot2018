@@ -1,9 +1,14 @@
 package org.usfirst.frc.team2813.commands;
 
+import org.usfirst.frc.team2813.robot.Robot;
+import org.usfirst.frc.team2813.subsystems.Launcher;
+
+import edu.wpi.first.wpilibj.command.Command;
+
 public class Shoot extends Command {
 	
-	public shoot() {
-		requires(Robot.Launcher);
+	public Shoot() {
+		requires(Robot.launcher);
 	}
 	protected void execute() {
 		Launcher.init();

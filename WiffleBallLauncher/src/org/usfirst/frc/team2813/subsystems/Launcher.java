@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Launcher extends Subsystem {
 	
-	private final int LAUNCHER_MOTOR_ID = 3;
+	private final static int LAUNCHER_MOTOR_ID = 3;
 
-	private final WPI_VictorSPX launcherMotor = new WPI_VictorSPX(LAUNCHER_MOTOR_ID);
+	private final static WPI_VictorSPX launcherMotor = new WPI_VictorSPX(LAUNCHER_MOTOR_ID);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -22,7 +22,7 @@ public class Launcher extends Subsystem {
         setDefaultCommand(new Shoot());
     }
     
-    public void init() {
+    public static void init() {
     	launcherMotor.set(1);
     }
 }
