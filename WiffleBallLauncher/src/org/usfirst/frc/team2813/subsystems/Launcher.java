@@ -2,6 +2,7 @@ package org.usfirst.frc.team2813.subsystems;
 
 import org.usfirst.frc.team2813.commands.Shoot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -23,7 +24,7 @@ public class Launcher extends Subsystem {
     }
     
     public static void init() {
-    	launcherMotor.set(1);
+    	launcherMotor.set(ControlMode.PercentOutput, 1.0);
     }
 }
 
