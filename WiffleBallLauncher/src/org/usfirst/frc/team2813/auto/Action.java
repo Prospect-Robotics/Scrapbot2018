@@ -1,5 +1,12 @@
 package org.usfirst.frc.team2813.auto;
 
-public class Action {
+public interface Action {
 
+boolean isFinished();
+
+void update();
+
+void done();
+
+void start();
 }
