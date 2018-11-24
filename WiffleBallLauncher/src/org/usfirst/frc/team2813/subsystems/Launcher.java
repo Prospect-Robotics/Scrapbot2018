@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Launcher extends Subsystem {
 	
-	private final static int LAUNCHER_MOTOR_ID = 3;
+	private final static int LAUNCHER_MOTOR_1_ID = 3;
+	private final static int LAUNCHER_MOTOR_2_ID = 4;
 
-	private final static VictorSPX launcherMotor = new VictorSPX(LAUNCHER_MOTOR_ID);
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+	private final static VictorSPX launcherMotor1 = new VictorSPX(LAUNCHER_MOTOR_1_ID);
+    private final static VictorSPX launcherMotor2 = new VictorSPX(LAUNCHER_MOTOR_2_ID);
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -24,7 +24,8 @@ public class Launcher extends Subsystem {
     }
     
     public static void init() {
-    	launcherMotor.set(ControlMode.PercentOutput, 1.0);
+    	launcherMotor1.set(ControlMode.PercentOutput, 1.0);
+    	launcherMotor2.set(ControlMode.PercentOutput, 1.0);
     }
 }
 
