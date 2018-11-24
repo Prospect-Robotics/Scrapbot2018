@@ -32,7 +32,7 @@ public class CreateTalonSRX {
 	 */
 	public static WPI_TalonSRX createDefaultWPITalonVictorSlave(int talonID, int victorID) {
 		final WPI_TalonSRX talon = createWPITalon(talonID, kDefaultConfiguration);
-		final VictorSPX victor = createPermanentSlaveVictor(victorID, talon);
+		createPermanentSlaveVictor(victorID, talon);
 		return talon;
 	}
 	
@@ -44,14 +44,13 @@ public class CreateTalonSRX {
 	 */
 	public static TalonSRX createDefaultTalonVictorSlave(int talonID, int victorID) {
 		final TalonSRX talon = createTalon(talonID, kDefaultConfiguration);
-		final VictorSPX victor = createPermanentSlaveVictor(victorID, talon);
+		createPermanentSlaveVictor(victorID, talon);
 		return talon;
 	}
 	
-	public static VictorSPX createPermanentSlaveVictor(int id, TalonSRX talon) {
+	public static void createPermanentSlaveVictor(int id, TalonSRX talon) {
 		final VictorSPX victor = new VictorSPX(id);
 		victor.follow(talon);
-		return victor;
 	}
 	
 	public static WPI_TalonSRX createWPITalon(int id, Configuration config) {
