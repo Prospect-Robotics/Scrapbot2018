@@ -37,5 +37,10 @@ public class DriveTrain extends Subsystem {
     	
     	robotDrive.arcadeDrive(joystick.getY(), -joystick.getX());
     }
+    
+    public void arcadeDrive(double speed) {
+    	
+    	robotDrive.arcadeDrive(speed, 0);
+    }
 }
 
