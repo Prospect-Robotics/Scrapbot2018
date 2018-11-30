@@ -35,7 +35,10 @@ public class CreateTalonSRX {
 		createPermanentSlaveVictor(victorID, talon);
 		return talon;
 	}
-	
+	public static WPI_TalonSRX createDefaultWPITalon(int talonID) {
+		final WPI_TalonSRX talon = createWPITalon(talonID, kDefaultConfiguration);
+		return talon;
+	}
 	/** 
 	 * Creates a TalonSRX and slaves a VictorSPX with default configuration
 	 * @param talonID
