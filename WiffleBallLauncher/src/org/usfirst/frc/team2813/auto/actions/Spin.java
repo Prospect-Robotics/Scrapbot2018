@@ -16,7 +16,9 @@ public class Spin implements Action{
 
 	@Override
 	public boolean isFinished() {
-		// TODO Auto-generated method stub
+		if(START_TIME - Timer.getFPGATTIMEstamp() <= time) {
+			return true;
+		}
 		return false;
 	}
 
