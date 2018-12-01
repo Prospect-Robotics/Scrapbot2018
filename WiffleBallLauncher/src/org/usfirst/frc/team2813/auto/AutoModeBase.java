@@ -33,10 +33,7 @@ public abstract class AutoModeBase {
         return mActive;
     }
 
-    public boolean isActiveWithThrow() throws AutoModeEndedException {
-        if (!isActive()) {
-            throw new AutoModeEndedException();
-        }
+    public boolean isActiveWithThrow(){
 
         return isActive();
     }
