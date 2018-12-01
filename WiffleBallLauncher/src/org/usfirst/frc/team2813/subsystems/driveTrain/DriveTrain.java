@@ -23,8 +23,8 @@ public class DriveTrain extends Subsystem {
 	private final int ENCODERRIGHTID = 1;
 	private final WPI_TalonSRX driveTrainLeft = CreateTalonSRX.createDefaultWPITalonVictorSlave(LEFTTALONID, LEFTVICTORID);
 	private final WPI_TalonSRX driveTrainRight = CreateTalonSRX.createDefaultWPITalonVictorSlave(RIGHTTALONID, RIGHTVICTORID);
-	private final Encoder encoderRight = CreateWPIEncoder.createEncoder;
-	private final Encoder encoderLeft = CreateWPIEncoder.createEncoder;
+	private final Encoder encoderRight = CreateWPIEncoder.createDefaultEncoder;
+	private final Encoder encoderLeft = CreateWPIEncoder.createDefaultEncoder;
 	private final DifferentialDrive robotDrive = new DifferentialDrive(driveTrainLeft, driveTrainRight);
 	
     public void initDefaultCommand() {
