@@ -28,7 +28,7 @@ public class Launcher extends Subsystem {
         setDefaultCommand(new Shoot());
     }
     
-    public static void init() {
+    public static void shoot() {
     	launcherMotor1.set(ControlMode.PercentOutput, 1.0);
     	launcherMotor2.set(ControlMode.PercentOutput, 1.0);
     }
