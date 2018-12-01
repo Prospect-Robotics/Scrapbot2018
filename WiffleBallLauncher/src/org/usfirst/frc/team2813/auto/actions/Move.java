@@ -1,12 +1,12 @@
 package org.usfirst.frc.team2813.auto.actions;
 
 import org.usfirst.frc.team2813.robot.Robot;
+import org.usfirst.frc.team2813.subsystems.driveTrain.DriveTrain;
 
 public class Move implements Action {
 
 	private static boolean forward;
 	private static double inches;
-	private static double inchesTraveled;
 	private static double maxSpeed;
 	
 	public Move(boolean forward, double inches, double maxSpeed) {
@@ -14,11 +14,14 @@ public class Move implements Action {
 		this.inches = inches;
 		this.maxSpeed = maxSpeed;
 	}
+	public double inchesTraveled() {
+		return DriveTrain.getDistance();
+	}
 	
 	
 	@Override
 	public boolean isFinished() {	
-		return inchesTraveled >= inches;
+		return inchesTraveled() >= inches;
 	}
 
 	@Override

@@ -19,20 +19,20 @@ public class DriveTrain extends Subsystem {
 	private final int LEFTVICTORID = 2;
 	private final int RIGHTTALONID = 7;
 	private final int RIGHTVICTORID = 8;
-	private final int ENCODERLEFTID = 0;
+	private final static int ENCODERLEFTID = 0;
 	private final int ENCODERRIGHTID = 1;
 	private final WPI_TalonSRX driveTrainLeft = CreateTalonSRX.createDefaultWPITalonVictorSlave(LEFTTALONID, LEFTVICTORID);
 	private final WPI_TalonSRX driveTrainRight = CreateTalonSRX.createDefaultWPITalonVictorSlave(RIGHTTALONID, RIGHTVICTORID);
-	private final Encoder encoderRight = CreateWPIEncoder.createDefaultEncoder;
-	private final Encoder encoderLeft = CreateWPIEncoder.createDefaultEncoder;
+	private final static Encoder encoderRight = CreateWPIEncoder.createDefaultEncoder;
+	private final static Encoder encoderLeft = CreateWPIEncoder.createDefaultEncoder;
 	private final DifferentialDrive robotDrive = new DifferentialDrive(driveTrainLeft, driveTrainRight);
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new OIDrive());     
     }
-    public double getDistance() {
-    	return (encoderRight.getDistance() + ENCODERLEFTID.getDistance())/2;
+    public static double getDistance() {
+    	return (encoderRight.getDistance() + encoderLeft.getDistance())/2;
     }
     public void arcadeDrive(Joystick joystick) {
     	
