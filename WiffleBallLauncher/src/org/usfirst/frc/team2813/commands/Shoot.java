@@ -11,7 +11,7 @@ public class Shoot extends Command {
 		requires(Robot.launcher);
 	}
 	protected void execute() {
-		Launcher.shoot();
+		Launcher.ballOut();
 	}
 	
 	protected boolean isFinished() {

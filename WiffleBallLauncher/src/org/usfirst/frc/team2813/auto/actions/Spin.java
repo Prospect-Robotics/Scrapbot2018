@@ -22,7 +22,7 @@ public class Spin implements Action{
 
 	@Override
 	public void update() {
-		Launcher.shoot();
+		Launcher.ballOut();
 		
 		
 		// TODO Auto-generated method stub
