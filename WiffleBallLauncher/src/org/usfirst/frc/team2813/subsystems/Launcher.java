@@ -28,12 +28,12 @@ public class Launcher extends Subsystem {
         setDefaultCommand(new Shoot());
     }
     
-    public static void ballOut() {
+    public static void spinOut() {
     	launcherMotor1.set(ControlMode.PercentOutput, 1.0);
     	launcherMotor2.set(ControlMode.PercentOutput, 1.0);
     }
     
-    public static void ballOut(double percentOutput) {
+    public static void spinOut(double percentOutput) {
     	launcherMotor1.set(ControlMode.PercentOutput, percentOutput);
     	launcherMotor2.set(ControlMode.PercentOutput, percentOutput);
     }
