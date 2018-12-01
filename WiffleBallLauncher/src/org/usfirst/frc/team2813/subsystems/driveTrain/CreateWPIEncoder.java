@@ -4,6 +4,11 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
 
+/**
+ * class that can be use to create WPIEncoder
+ * 
+ *
+ */
 public class CreateWPIEncoder {
 	public static class Configuration {
     	public final double WHEEL_DIAMETER_INCHES = 3.95;
@@ -16,14 +21,29 @@ public class CreateWPIEncoder {
 	
 	private static final Configuration kDefaultConfiguration = new Configuration();
 
+	
+	/**
+	 * Creates Encoder with given configuration
+	 * @param encoderID
+	 * @param reversed
+	 * @param config
+	 * @return
+	 */
 	public static Encoder createEncoder(int encoderID, boolean reversed, Configuration config) {
 		Encoder encoder= new Encoder(2*encoderID+10,2*encoderID+11, reversed, EncodingType.k4X);
 		encoder.setDistancePerPulse(config.INCHES_PER_ENCODER_PULSE);
 		encoder.setSamplesToAverage(0);
 		encoder.setPIDSourceType(PIDSourceType.kRate);
 		return encoder;
+		
 	}
 	
+	/**
+	 * Creates Encoder with Default configuration
+	 * @param encoderID
+	 * @param reversed
+	 * @return
+	 */
 	public static Encoder createDefaultEncoder(int encoderID, boolean reversed) {
 		final Encoder encoder = createEncoder(encoderID, reversed, kDefaultConfiguration);
 		return encoder;
