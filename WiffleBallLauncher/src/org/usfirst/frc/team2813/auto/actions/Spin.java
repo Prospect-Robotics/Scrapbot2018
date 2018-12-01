@@ -16,7 +16,7 @@ public class Spin implements Action{
 
 	@Override
 	public boolean isFinished() {
-		if(START_TIME - Timer.getFPGATTIMEstamp() <= time) {
+		if(START_TIME - Timer.getFPGATimestamp() <= time) {
 			return true;
 		}
 		return false;
