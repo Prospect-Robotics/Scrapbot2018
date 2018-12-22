@@ -14,14 +14,15 @@ public class Move implements Action {
 		this.inches = inches;
 		this.maxSpeed = maxSpeed;
 	}
-	public double inchesTraveled() {
-		return DriveTrain.getDistance();
-	}
+//	public double inchesTraveled() { FIXME uncomment when encoders are in place
+//		return DriveTrain.getDistance();
+//	}
 	
 	
 	@Override
-	public boolean isFinished() {	
-		return inchesTraveled() >= inches;
+	public boolean isFinished() {
+//		return inchesTraveled() >= inches; FIXME uncomment when encoders are in place
+		return true;// FIXME remove when encoders are in place
 	}
 
 	@Override

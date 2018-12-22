@@ -18,10 +18,10 @@ public class Launcher extends Subsystem {
 	private final static int LAUNCHER_MOTOR_2_ID = 4;
 	private final static int ANGLE_MOTOR_ID = 5;
 	
-	private final static VictorSPX launcherMotor1 = new VictorSPX(LAUNCHER_MOTOR_1_ID);
-    private final static VictorSPX launcherMotor2 = new VictorSPX(LAUNCHER_MOTOR_2_ID);
+//	private final static VictorSPX launcherMotor1 = new VictorSPX(LAUNCHER_MOTOR_1_ID); FIXME add back when launcher is added
+//  private final static VictorSPX launcherMotor2 = new VictorSPX(LAUNCHER_MOTOR_2_ID); FIXME add back when launcher is added
 
-	public final static WPI_TalonSRX angleMotor = CreateTalonSRX.createDefaultWPITalon(ANGLE_MOTOR_ID);
+//	public final static WPI_TalonSRX angleMotor = CreateTalonSRX.createDefaultWPITalon(ANGLE_MOTOR_ID); FIXME add back when launcher is added
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -29,13 +29,13 @@ public class Launcher extends Subsystem {
     }
     
     public static void spinOut() {
-    	launcherMotor1.set(ControlMode.PercentOutput, 1.0);
-    	launcherMotor2.set(ControlMode.PercentOutput, 1.0);
+//    	launcherMotor1.set(ControlMode.PercentOutput, 1.0);
+//    	launcherMotor2.set(ControlMode.PercentOutput, 1.0);
     }
     
     public static void spinOut(double percentOutput) {
-    	launcherMotor1.set(ControlMode.PercentOutput, percentOutput);
-    	launcherMotor2.set(ControlMode.PercentOutput, percentOutput);
+//    	launcherMotor1.set(ControlMode.PercentOutput, percentOutput);
+//    	launcherMotor2.set(ControlMode.PercentOutput, percentOutput);
     }
 }
 

@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.Timer;
 public class Spin implements Action{
 	private static double time;
 	
+	private static final double START_TIME = 0;//FIXME shortcut - this constant should be defined correctly when coming back to this class
+	
 	public Spin(double time) {
 		this.time = time;
 		
