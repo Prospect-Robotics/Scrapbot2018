@@ -7,19 +7,22 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-public class CreateTalonSRX {	
+public class CreateTalonSRX {
 	private static final int kTimeoutMs = 100;
 	public static class Configuration {
-		public NeutralMode NEUTRAL_MODE = NeutralMode.Brake;
-		public boolean ENABLE_CURRENT_LIMIT = false;
-        public boolean ENABLE_SOFT_LIMIT = false;
-        public boolean ENABLE_LIMIT_SWITCH = false;
-        public int FORWARD_SOFT_LIMIT = 0;
-        public int REVERSE_SOFT_LIMIT = 0;
-        public double OPEN_LOOP_RAMP_RATE = 0.0;//Time to reach set speed
-        public double CLOSED_LOOP_RAMP_RATE = 0.0;
-        public boolean INVERTED = false;
-        public boolean SENSOR_PHASE = false;
+		public final NeutralMode NEUTRAL_MODE = NeutralMode.Brake;
+		public final boolean ENABLE_CURRENT_LIMIT = false;
+        public final boolean ENABLE_SOFT_LIMIT = false;
+        public final boolean ENABLE_LIMIT_SWITCH = false;
+        public final int FORWARD_SOFT_LIMIT = 0;
+        public final int REVERSE_SOFT_LIMIT = 0;
+        public final double OPEN_LOOP_RAMP_RATE = 0.0;//Time to reach set speed
+        public final double CLOSED_LOOP_RAMP_RATE = 0.0;
+        public final boolean INVERTED = false;
+        public final boolean SENSOR_PHASE = false;
+
+        public final int SLOT_ID = 0;
+		public final int PID_ID = 0;
 	}
 	
 	private static final Configuration kDefaultConfiguration = new Configuration();
@@ -82,7 +85,7 @@ public class CreateTalonSRX {
         talon.configOpenloopRamp(config.OPEN_LOOP_RAMP_RATE, kTimeoutMs);
         talon.configClosedloopRamp(config.CLOSED_LOOP_RAMP_RATE, kTimeoutMs);
         
-        talon.selectProfileSlot(0, 0);
+        talon.selectProfileSlot(config.SLOT_ID, config.PID_ID);
         
         talon.enableCurrentLimit(config.ENABLE_CURRENT_LIMIT);
         
@@ -114,8 +117,8 @@ public class CreateTalonSRX {
         
         talon.configOpenloopRamp(config.OPEN_LOOP_RAMP_RATE, kTimeoutMs);
         talon.configClosedloopRamp(config.CLOSED_LOOP_RAMP_RATE, kTimeoutMs);
-        
-        talon.selectProfileSlot(0, 0);
+
+		talon.selectProfileSlot(config.SLOT_ID, config.PID_ID);
         
         talon.enableCurrentLimit(config.ENABLE_CURRENT_LIMIT);
         
