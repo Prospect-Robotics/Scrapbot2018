@@ -15,18 +15,16 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	private final int LEFTTALONID = 1;
-	private final int LEFTVICTORID = 2;
-	private final int RIGHTTALONID = 7;
-	private final int RIGHTVICTORID = 8;
-	private final static int ENCODERLEFTID = 0;
-	private final static int ENCODERRIGHTID = 1;
+	private static final int LEFTTALONID = 1;
+	private static final int LEFTVICTORID = 2;
+	private static final int RIGHTTALONID = 7;
+	private static final int RIGHTVICTORID = 8;
+	private static final int ENCODERLEFTID = 0;
+	private static final int ENCODERRIGHTID = 1;
+	private static final int PID_LOOP = 0;
 	
-	private final WPI_TalonSRX driveTrainLeft = CreateTalonSRX.createDefaultWPITalonVictorSlave(LEFTTALONID, LEFTVICTORID);
-	private final WPI_TalonSRX driveTrainRight = CreateTalonSRX.createDefaultWPITalonVictorSlave(RIGHTTALONID, RIGHTVICTORID);
-	
-	private final static Encoder encoderRight = CreateWPIEncoder.createDefaultEncoder(ENCODERRIGHTID, true);
-	private final static Encoder encoderLeft = CreateWPIEncoder.createDefaultEncoder(ENCODERLEFTID, false);
+	private static final WPI_TalonSRX driveTrainLeft = CreateTalonSRX.createDefaultWPITalonVictorSlave(LEFTTALONID, LEFTVICTORID);
+	private static final WPI_TalonSRX driveTrainRight = CreateTalonSRX.createDefaultWPITalonVictorSlave(RIGHTTALONID, RIGHTVICTORID);
 	
 	private final DifferentialDrive robotDrive = new DifferentialDrive(driveTrainLeft, driveTrainRight);
 	
@@ -34,9 +32,16 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         setDefaultCommand(new OIDrive());     
     }
+    
+    /**
+     * Gets mean distance for drive train encoders
+     * @return distance
+     */
     public static double getDistance() {
-    	return (encoderRight.getDistance() + encoderLeft.getDistance())/2;
+    	return ConfigEncoderForTalon.getDefaultDistance(driveTrainLeft, PID_LOOP)*
+    			ConfigEncoderForTalon.getDefaultDistance(driveTrainRight, PID_LOOP)/2;
     }
+    
     public void arcadeDrive(Joystick joystick) {
     	
     	robotDrive.arcadeDrive(joystick.getY(), -joystick.getX());

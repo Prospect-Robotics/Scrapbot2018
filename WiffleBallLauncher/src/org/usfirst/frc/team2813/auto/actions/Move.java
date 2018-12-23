@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2813.auto.actions;
 
-import org.usfirst.frc.team2813.robot.Robot;
+import org.usfirst.frc.team2813.Robot;
 import org.usfirst.frc.team2813.subsystems.driveTrain.DriveTrain;
 
 public class Move implements Action {
@@ -14,16 +14,15 @@ public class Move implements Action {
 		this.inches = inches;
 		this.maxSpeed = maxSpeed;
 	}
-//	public double inchesTraveled() { FIXME uncomment when encoders are in place
-//		return DriveTrain.getDistance();
-//	}
+	public double inchesTraveled() {
+		return DriveTrain.getDistance();
+	}
 	
 	
 	@Override
 	public boolean isFinished() {
-//		return inchesTraveled() >= inches; FIXME uncomment when encoders are in place
-		return true;// FIXME remove when encoders are in place
-	}
+		return inchesTraveled() >= inches;
+}
 
 	@Override
 	public void update() {

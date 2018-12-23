@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
 
 /**
- * class that can be use to create WPIEncoder
+ * Get encoder readings from talon
  * 
  *
  */
-public class CreateWPIEncoder {
+public class ConfigEncoderForTalon {
 	public static class Configuration {
 		public final double WHEEL_DIAMETER_INCHES = 3.95;
 		public final double WHEEL_CIRCUMFERENCE_INCHES = Math.PI * WHEEL_DIAMETER_INCHES;
@@ -24,11 +24,17 @@ public class CreateWPIEncoder {
 
 	private static final Configuration kDefaultConfiguration = new Configuration();
 
-	public double getDistance(TalonSRX talon, Configuration config, int PIDLoop) {
+	public static double getDistance(TalonSRX talon, Configuration config, int PIDLoop) {
 		return talon.getSelectedSensorPosition(PIDLoop) * config.INCHES_PER_ENCODER_PULSE;
 	}
 
-	public double getDefaultDistance(TalonSRX talon, int PIDLoop) {
+	/**
+	 * Get default config encoder reading from Talon
+	 * @param talon
+	 * @param PIDLoop
+	 * @return encoder reading
+	 */
+	public static double getDefaultDistance(TalonSRX talon, int PIDLoop) {
 		return getDistance(talon, kDefaultConfiguration, PIDLoop);
 	}
 }

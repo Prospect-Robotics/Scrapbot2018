@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2813.auto.actions;
 
-import org.usfirst.frc.team2813.robot.Robot;
+import org.usfirst.frc.team2813.Robot;
 import org.usfirst.frc.team2813.subsystems.Launcher;
 
 import edu.wpi.first.wpilibj.Timer;
