@@ -3,7 +3,6 @@ package org.usfirst.frc.team2813.robot;
 import com.ctre.phoenix.motorcontrol.*;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class CreateTalonSRX {
 	private static final int kTimeoutMs = 100;
@@ -26,21 +25,6 @@ public class CreateTalonSRX {
 
 	private static final Configuration kDefaultConfiguration = new Configuration();
 
-	/**
-	 * Creates a WPI_TalonSRX and slaves a VictorSPX with default configuration
-	 * @param talonID
-	 * @param victorID
-	 * @return A WPI_TalonSRX
-	 */
-	public static WPI_TalonSRX createDefaultWPITalonVictorSlave(int talonID, int victorID) {
-		final WPI_TalonSRX talon = (WPI_TalonSRX) createTalon(talonID, kDefaultConfiguration);
-		createPermanentSlaveVictor(victorID, talon);
-		return talon;
-	}
-	public static WPI_TalonSRX createDefaultWPITalon(int talonID) {
-		final WPI_TalonSRX talon = (WPI_TalonSRX) createTalon(talonID, kDefaultConfiguration);
-		return talon;
-	}
 	/**
 	 * Creates a TalonSRX and slaves a VictorSPX with default configuration
 	 * @param talonID
