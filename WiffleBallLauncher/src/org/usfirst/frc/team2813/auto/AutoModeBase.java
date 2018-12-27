@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.DriverStation;
 public abstract class AutoModeBase {
     protected double mUpdateRate = 1.0 / 50.0;
     protected boolean mActive = false;
-
+    
+    protected abstract void routine();
 
     public void run() {
         mActive = true;
