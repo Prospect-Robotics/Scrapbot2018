@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2813;
 
+import org.usfirst.frc.team2813.AutoFieldState.Side;
 import org.usfirst.frc.team2813.auto.AutoModeBase;
 import org.usfirst.frc.team2813.auto.creators.*;
 import org.usfirst.frc.team2813.auto.modes.CrossAutoLineMode;
@@ -97,19 +98,20 @@ public class AutoModeSelector {
 
     private Optional<AutoModeCreator> getCreatorForParams(DesiredMode mode, StartingPosition position) {
         boolean startOnLeft = StartingPosition.LEFT == position;
+        System.out.println("getCreatorForParams AutoModeSelector");//XXX this doesn't run
         switch (mode) {
-            /*case SIMPLE_SWITCH:
-                return Optional.of(new SimpleSwitchModeCreator()); XXX commented for auto line only*/
-            case CROSS_AUTO_LINE:
-                return Optional.of(new CrossAutoLineCreator());
-            /*case SCALE_AND_SWITCH:
-                return Optional.of(new SwitchAndScaleAutoModeCreator());
-            case ONLY_SCALE:
-                return Optional.of(new ScaleOnlyAutoModeCreator(startOnLeft)); XXX commented for auto line only*/
-            default:
-                break;
+//        case SIMPLE_SWITCH:
+//            return Optional.of(new SimpleSwitchModeCreator());
+	        case CROSS_AUTO_LINE:
+	            return Optional.of(new CrossAutoLineCreator());
+	//        case SCALE_AND_SWITCH:
+	//            return Optional.of(new SwitchAndScaleAutoModeCreator());
+	        case ONLY_SCALE:
+	            return Optional.of(new ScaleOnlyAutoModeCreator(startOnLeft));
+	        default:
+	            break;
         }
-
+	            
         System.err.println("No valid auto mode found for  " + mode);
         return Optional.empty();
     }
@@ -145,14 +147,14 @@ public class AutoModeSelector {
         SmartDashboard.putString("SwitchScalePositionSelected", mCachedSwitchScalePosition.name());
     }
 
-    public CrossAutoLineMode getAutoMode(AutoFieldState fieldState) {
-        /*if (!mCreator.isPresent()) {
-            return Optional.empty();
-        }
-        if (fieldState.isOverridingGameData()) {
-            System.out.println("Overriding FMS switch/scale positions!");
-        }*/
-        //return CrossAutoLineMode;
+    public AutoModeBase getAutoMode(AutoFieldState fieldState) {
+//    	if (!mCreator.isPresent()) {
+//            return Optional.empty();
+//        }
+//        if (fieldState.isOverridingGameData()) {
+//            System.out.println("Overriding FMS switch/scale positions!");
+//        }
+//        return Optional.of(mCreator.get().getStateDependentAutoMode(fieldState));
         return new CrossAutoLineMode();
     }
 

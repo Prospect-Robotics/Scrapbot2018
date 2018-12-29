@@ -15,12 +15,14 @@ public class AutoModeExecutor {
 
 			@Override
 			public void run() {
+				System.out.println("AutoModeExecutor SetAutoMode Run");//XXX this runs
 				m_auto_mode.run();
 			}
         });
     }
 
     public void start() {
+    	System.out.println("AutoModeExecutor Start");//XXX this runs
         if (m_thread != null) {
             m_thread.start();
         }

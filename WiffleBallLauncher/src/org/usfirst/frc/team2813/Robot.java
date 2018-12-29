@@ -9,6 +9,7 @@ package org.usfirst.frc.team2813;
 
 import org.usfirst.frc.team2813.auto.AutoModeExecutor;
 import org.usfirst.frc.team2813.auto.modes.CrossAutoLineMode;
+import org.usfirst.frc.team2813.loops.Looper;
 
 import java.util.Optional;
 
@@ -29,10 +30,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
  * project.
  */
 public class Robot extends IterativeRobot {
-	private static final String kDefaultAuto = "Default";
-	private static final String kCustomAuto = "My Auto";
-	private String m_autoSelected;
-	private SendableChooser<String> m_chooser = new SendableChooser<>();
+	private Looper mEnabledLooper = new Looper();
+    private Looper mDisabledLooper = new Looper();
 	public static DriveTrain driveTrain;
 	public static Launcher launcher;
 	public static OI oi;
@@ -52,12 +51,14 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void disabledInit() {
-//		if (mAutoModeExecutor != null) {
-//			mAutoModeExecutor.stop();
-//		}
-//		
-//		//Reset all auto mode state
-//		mAutoModeExecutor = new AutoModeExecutor();
+		mEnabledLooper.stop();
+		if (mAutoModeExecutor != null) {
+			mAutoModeExecutor.stop();
+		}
+		
+		//Reset all auto mode state
+		mAutoModeExecutor = new AutoModeExecutor();
+		mDisabledLooper.start();
 	}
 	
 	/**
@@ -71,18 +72,24 @@ public class Robot extends IterativeRobot {
 	 * the switch structure below with additional strings. If using the
 	 * SendableChooser make sure to add them to the chooser code above as well.
 	 */
-//	@Override
-//	public void autonomousInit() {
-//		
-//		mAutoModeExecutor.start();
-//	}
-//
-//	/**
-//	 * This function is called periodically during autonomous.
-//	 */
-//	@Override
-//	public void autonomousPeriodic() {
-//		Scheduler.getInstance().run();
+	@Override
+	public void autonomousInit() {
+		mDisabledLooper.stop();
+
+		mEnabledLooper.start();
+		mAutoModeExecutor.start();
+	}
+	
+	public void teleopInit() {
+		mDisabledLooper.stop();
+	}
+
+	/**
+	 * This function is called periodically during autonomous.
+	 */
+	@Override
+	public void autonomousPeriodic() {
+		Scheduler.getInstance().run();
 //		switch (m_autoSelected) {
 //			case kCustomAuto:
 //				// Put custom auto code here
@@ -92,7 +99,7 @@ public class Robot extends IterativeRobot {
 //				// Put default auto code here
 //				break;
 //		}
-//	}
+	}
 
 	/**
 	 * This function is called periodically during operator control.
@@ -104,7 +111,11 @@ public class Robot extends IterativeRobot {
 
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
-		//CrossAutoLineMode autoMode = new CrossAutoLineMode();//mAutoModeSelector.getAutoMode(mAutoFieldState);
+		AutoModeBase autoMode = mAutoModeSelector.getAutoMode(mAutoFieldState);
+        System.out.println("DisabledPeriodic109");
+        System.out.println("Set auto mode to: " + autoMode.getClass().toString());
+        mAutoModeExecutor.setAutoMode(autoMode);
+//		CrossAutoLineMode autoMode = new CrossAutoLineMode();//mAutoModeSelector.getAutoMode(mAutoFieldState);
 	}
 	
 	/**

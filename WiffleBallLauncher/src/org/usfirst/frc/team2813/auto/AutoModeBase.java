@@ -11,18 +11,18 @@ import edu.wpi.first.wpilibj.DriverStation;
  */
 public abstract class AutoModeBase {
     protected double mUpdateRate = 1.0 / 50.0;
-    protected boolean mActive = false;
+    protected static boolean mActive = false;
     
     protected abstract void routine();
 
-    public void run() {
+    public static void run() {
         mActive = true;
 
         
         done();
     }
 
-    public void done() {
+    public static void done() {
         System.out.println("Auto mode done");
     }
 

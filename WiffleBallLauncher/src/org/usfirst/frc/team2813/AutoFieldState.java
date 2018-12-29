@@ -14,7 +14,7 @@ public class AutoFieldState {
 
     private Side ourSwitchSide, scaleSide, opponentSwitchSide;
     private Side overrideOurSwitchSide, overrideScaleSide, overrideOpponentSwitchSide;
-    private boolean overrideGameData = true;//FIXME if you want game data
+    private boolean overrideGameData = true;//FIXME if you want to use game data
 
     private AutoFieldState() {
     }
