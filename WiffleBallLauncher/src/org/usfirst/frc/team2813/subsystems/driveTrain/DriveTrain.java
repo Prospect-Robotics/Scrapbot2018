@@ -21,8 +21,8 @@ public class DriveTrain extends Subsystem {
 	private static final int RIGHTVICTORID = 8;
 	private static final int PID_LOOP = 0;
 	
-	private final static WPI_TalonSRX driveTrainLeft = (WPI_TalonSRX) CreateTalonSRX.createDefaultTalonVictorSlave(LEFTTALONID, LEFTVICTORID);
-	private final static WPI_TalonSRX driveTrainRight = (WPI_TalonSRX) CreateTalonSRX.createDefaultTalonVictorSlave(RIGHTTALONID, RIGHTVICTORID);
+	private final static WPI_TalonSRX driveTrainLeft = CreateTalonSRX.createDefaultWPITalonVictorSlave(LEFTTALONID, LEFTVICTORID);
+	private final static WPI_TalonSRX driveTrainRight = CreateTalonSRX.createDefaultWPITalonVictorSlave(RIGHTTALONID, RIGHTVICTORID);
 	
 	private final DifferentialDrive robotDrive = new DifferentialDrive(driveTrainLeft, driveTrainRight);
 	

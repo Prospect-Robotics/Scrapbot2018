@@ -3,6 +3,7 @@ package org.usfirst.frc.team2813.robot;
 import com.ctre.phoenix.motorcontrol.*;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class CreateTalonSRX {
 	private static final int kTimeoutMs = 100;
@@ -26,13 +27,13 @@ public class CreateTalonSRX {
 	private static final Configuration kDefaultConfiguration = new Configuration();
 
 	/**
-	 * Creates a TalonSRX and slaves a VictorSPX with default configuration
+	 * Creates a WPI_TalonSRX and slaves a VictorSPX with default configuration
 	 * @param talonID
 	 * @param victorID
-	 * @return A TalonSRX
+	 * @return A WPI_TalonSRX
 	 */
-	public static TalonSRX createDefaultTalonVictorSlave(int talonID, int victorID) {
-		final TalonSRX talon = createTalon(talonID, kDefaultConfiguration);
+	public static WPI_TalonSRX createDefaultWPITalonVictorSlave(int talonID, int victorID) {
+		final WPI_TalonSRX talon = createWPITalon(talonID, kDefaultConfiguration);
 		createPermanentSlaveVictor(victorID, talon);
 		return talon;
 	}
@@ -42,8 +43,8 @@ public class CreateTalonSRX {
 		victor.follow(talon);
 	}
 
-	public static TalonSRX createTalon(int id, Configuration config) {
-		TalonSRX talon = new TalonSRX(id);
+	public static WPI_TalonSRX createWPITalon(int id, Configuration config) {
+		WPI_TalonSRX talon = new WPI_TalonSRX(id);
 		talon.set(ControlMode.PercentOutput, 0.0);
 
 		talon.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen, kTimeoutMs);
