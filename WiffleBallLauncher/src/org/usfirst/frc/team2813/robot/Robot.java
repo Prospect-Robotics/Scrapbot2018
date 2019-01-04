@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team2813.robot;
 
-import org.usfirst.frc.team2813.subsystems.Launcher;
+
 import org.usfirst.frc.team2813.subsystems.driveTrain.DriveTrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -27,7 +27,6 @@ public class Robot extends IterativeRobot {
 	private String m_autoSelected;
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
 	public static DriveTrain driveTrain;
-	public static Launcher launcher;
 	public static OI oi;
 
 	/**
@@ -37,7 +36,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		driveTrain = new DriveTrain();
-		launcher = new Launcher();
 		oi = new OI();
 	}
 
