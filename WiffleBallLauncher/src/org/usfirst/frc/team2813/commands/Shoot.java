@@ -14,8 +14,5 @@ public class Shoot extends Command {
 		Launcher.spinOut();
 	}
 	
-	protected boolean isFinished() {
-		return false;
 		
-	}
 }
