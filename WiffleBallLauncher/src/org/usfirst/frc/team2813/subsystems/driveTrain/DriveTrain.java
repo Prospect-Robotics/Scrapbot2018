@@ -1,10 +1,8 @@
 package org.usfirst.frc.team2813.subsystems.driveTrain;
+
 import org.usfirst.frc.team2813.commands.OIDrive;
 import org.usfirst.frc.team2813.robot.CreateTalonSRX;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -25,7 +23,7 @@ public class DriveTrain extends Subsystem {
 	private final static WPI_TalonSRX driveTrainRight = CreateTalonSRX.createDefaultWPITalonVictorSlave(RIGHTTALONID, RIGHTVICTORID);
 	
 	private final DifferentialDrive robotDrive = new DifferentialDrive(driveTrainLeft, driveTrainRight);
-	
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new OIDrive());     
