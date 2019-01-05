@@ -1,9 +1,6 @@
 package org.usfirst.frc.team2813.subsystems.driveTrain;
 
 import org.usfirst.frc.team2813.commands.OIDrive;
-import edu.wpi.first.wpilibj.Encoder;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import org.usfirst.frc.team2813.robot.CreateTalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
