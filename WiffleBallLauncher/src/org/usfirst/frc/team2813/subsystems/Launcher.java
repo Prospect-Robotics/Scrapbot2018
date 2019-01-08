@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2813.subsystems;
 
-import org.usfirst.frc.team2813.commands.Shoot;
+
 import org.usfirst.frc.team2813.robot.CreateTalonSRX;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -25,7 +25,6 @@ public class Launcher extends Subsystem {
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new Shoot());
     }
     
     public static void spinOut() {
