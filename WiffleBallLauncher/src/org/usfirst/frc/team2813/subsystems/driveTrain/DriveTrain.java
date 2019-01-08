@@ -28,9 +28,9 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         setDefaultCommand(new OIDrive());     
     }
-    public static double getDistance() {
-    	return (ConfigureEncoderToTalon.getDefaultDistance(driveTrainLeft, PID_LOOP) + ConfigureEncoderToTalon.getDefaultDistance(driveTrainRight, PID_LOOP))/2;
-    }
+   // public static double getDistance() {
+    	//return (ConfigureEncoderToTalon.getDefaultDistance(driveTrainLeft, PID_LOOP) + ConfigureEncoderToTalon.getDefaultDistance(driveTrainRight, PID_LOOP))/2;
+    //}
     public void arcadeDrive(Joystick joystick) {
     	
     	robotDrive.arcadeDrive(joystick.getY(), -joystick.getX());
