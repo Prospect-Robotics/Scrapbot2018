@@ -17,14 +17,11 @@ public class CreateTalonSRX {
         public boolean ENABLE_LIMIT_SWITCH = false;
         public int FORWARD_SOFT_LIMIT = 0;
         public int REVERSE_SOFT_LIMIT = 0;
-        public int PID_SLOT = 0;
-        public int PID_LOOP = 0;
         public double OPEN_LOOP_RAMP_RATE = 0.0;//Time to reach set speed
         public double CLOSED_LOOP_RAMP_RATE = 0.0;
         public boolean INVERTED = false;
         public boolean SENSOR_PHASE = false;
-        public FeedbackDevice FEEDBACK_SENSOR = FeedbackDevice.QuadEncoder;
-        
+		public FeedbackDevice FEEDBACK_SENSOR;
 	}
 	
 	private static final Configuration kDefaultConfiguration = new Configuration();
@@ -119,12 +116,8 @@ public class CreateTalonSRX {
         
         talon.configOpenloopRamp(config.OPEN_LOOP_RAMP_RATE, kTimeoutMs);
         talon.configClosedloopRamp(config.CLOSED_LOOP_RAMP_RATE, kTimeoutMs);
-        talon.configSelectedFeedbackSensor(config.FEEDBACK_SENSOR, config.PID_LOOP, kTimeoutMs);
-        
-        talon.selectProfileSlot(config.PID_SLOT, config.PID_LOOP);
         
         talon.selectProfileSlot(0, 0);
-        
         talon.enableCurrentLimit(config.ENABLE_CURRENT_LIMIT);
         
 		return talon;
