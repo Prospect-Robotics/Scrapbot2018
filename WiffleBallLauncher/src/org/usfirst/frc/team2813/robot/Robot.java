@@ -28,7 +28,6 @@ public class Robot extends IterativeRobot {
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
 	public static DriveTrain driveTrain;
 	public static Launcher launcher;
-	public static OI oi;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -38,7 +37,6 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		driveTrain = new DriveTrain();
 		launcher = new Launcher();
-		oi = new OI();
 	}
 
 	/**
