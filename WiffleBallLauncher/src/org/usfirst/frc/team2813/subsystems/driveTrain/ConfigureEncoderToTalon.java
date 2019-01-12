@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.PIDSourceType;
  */
 public class ConfigureEncoderToTalon {
 	public static class Configuration {
-		public final double WHEEL_DIAMETER_INCHES = 3.95;
+		public final double WHEEL_DIAMETER_INCHES = 9;
 		public final double WHEEL_CIRCUMFERENCE_INCHES = Math.PI * WHEEL_DIAMETER_INCHES;
 		public final double ENCODER_TO_DRIVE_SCALE = 3;
 		public final double ENCODER_PULSES_PER_ENCODER_REVOLUTION = 256;
